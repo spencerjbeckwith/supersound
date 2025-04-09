@@ -1,3 +1,5 @@
+import { AudioResource } from "./AudioResource";
+
 /** Central engine to control gain and other effects for a series of AudioResources over time */
 export class AudioEngine {
 
@@ -27,6 +29,11 @@ export class AudioEngine {
         this.gain.main.connect(this.context.destination);
         this.gain.sound.connect(this.gain.main);
         this.gain.music.connect(this.gain.main);
+    }
+
+    connect(resource: AudioResource) {
+        // TODO
+        // Connect the resource's node to the correct GainNode
     }
 
     // TODO functions that handle fading music out, setting gain, and other kinds of effects?

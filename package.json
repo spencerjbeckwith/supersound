@@ -41,7 +41,8 @@
   "nyc": {
     "exclude": [
       "**/*.d.ts",
-      "**/*.spec.ts"
+      "**/*.spec.ts",
+      "config/*"
     ]
   }
 }
