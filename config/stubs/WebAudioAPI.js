@@ -11,7 +11,21 @@ class AudioNode {
     disconnect() {}
 }
 
-class GainNode extends AudioNode {};
+class AudioParam {
+    get value() {
+        return 1
+    }
+    setValueAtTime() {}
+    linearRampToValueAtTime() {}
+    exponentialRampToValueAtTime() {}
+}
+
+class GainNode extends AudioNode {
+    constructor() {
+        super();
+        this.gain = new AudioParam();
+    }
+};
 
 class AudioStub extends EventTarget {
     constructor() {
@@ -31,5 +45,6 @@ class AudioStub extends EventTarget {
 
 global.AudioContext = AudioContext;
 global.AudioNode = AudioNode;
+global.AudioParam = AudioParam;
 global.GainNode = GainNode;
 global.Audio = AudioStub;
