@@ -12,7 +12,7 @@
   "bugs": {
     "url": "https://github.com/spencerjbeckwith/supersound/issues"
   },
-  "homepage": "https://github.com/spencerjbeckwith/supersprite#readme",
+  "homepage": "https://github.com/spencerjbeckwith/supersound#readme",
   "scripts": {
     "build": "tsc",
     "test": "cross-env TS_NODE_PROJECT=config/tsconfig.test.json mocha --config config/.mocharc.json",
