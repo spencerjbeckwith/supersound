@@ -35,7 +35,7 @@ export class MusicTrack extends AudioResource {
     fadeIn(seconds: number, type?: FadeType) {
         this.play(0);
         const fn = this.#getRampFunction(type);
-        fn(1, this.context.currentTime + seconds);
+        fn.bind(this.node.gain)(1, this.context.currentTime + seconds);
     }
 
     /**
@@ -45,7 +45,7 @@ export class MusicTrack extends AudioResource {
      */
     fadeOut(seconds: number, type?: FadeType) {
         const fn = this.#getRampFunction(type);
-        fn(0, this.context.currentTime + seconds);
+        fn.bind(this.node.gain)(0, this.context.currentTime + seconds);
 
         // Set timeout to stop the audio after the fade is complete
         this.fadeTimeout = setTimeout(() => {
