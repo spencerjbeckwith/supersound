@@ -12,7 +12,7 @@ module.exports = {
     resolve: {
         extensions: [".ts", ".js", ".json"],
         alias: {
-            "supersprite": path.resolve(__dirname, "../../dist"),
+            "supersound": path.resolve(__dirname, "../../dist"),
         },
     },
     output: {
