@@ -7,7 +7,14 @@ class AudioContext {
 }
 
 class AudioNode {
-    connect() {}
+    constructor() {
+        this.connections = 0; // Used for test assertions
+    }
+    connect(target) {
+        if (target) {
+            target.connections++;
+        }
+    }
     disconnect() {}
 }
 

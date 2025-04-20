@@ -1,4 +1,6 @@
 import { AudioResource } from "./AudioResource";
+import { MusicTrack } from "./MusicTrack";
+import { IntroTrack } from "./IntroTrack";
 
 /** Central engine to control gain and other effects for a series of AudioResources over time */
 export class AudioEngine {
@@ -31,10 +33,14 @@ export class AudioEngine {
         this.gain.music.connect(this.gain.main);
     }
 
-    connect(resource: AudioResource) {
-        // TODO
+    register(resource: AudioResource, type?: "sound" | "music") {
         // Connect the resource's node to the correct GainNode
+        if (!type) {
+            type = "sound";
+            if (resource instanceof MusicTrack || resource instanceof IntroTrack) {
+                type = "music";
+            }
+        }
+        resource.node.connect(this.gain[type]);
     }
-
-    // TODO functions that handle fading music out, setting gain, and other kinds of effects?
 }
